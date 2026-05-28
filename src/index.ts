@@ -39,12 +39,7 @@ app.use('/api/order/checkout/webhook', express.raw({type:"*/*"}))
 
 app.use(express.json());
 app.use(cors({
-    origin: [
-        "https://localhost:5173",
-        "http://localhost:5173",
-        "https://app-itz-food-frontend-vq5t.onrender.com",
-        process.env.FRONTEND_URL || "https://localhost:5173"
-    ],
+    origin: process.env.FRONTEND_URL || "https://localhost:5173",
     credentials: true
 }));
 app.use(morgan('dev'));
